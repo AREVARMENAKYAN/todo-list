@@ -11,7 +11,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "vue": "^3.4.21"
+    "vue": "^3.4.21",
+    "vuetify": "^3.5.15"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
