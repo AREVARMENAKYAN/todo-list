@@ -15,7 +15,6 @@ export default {
             this.isTaskModalOpen = !this.isTaskModalOpen
         },
         onTaskSave(task) {
-            console.log(task)
 
             this.tasks.push(task)
             this.toggleTaskModal();
