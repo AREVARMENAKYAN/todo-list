@@ -1,5 +1,5 @@
 <script>
-import TodoList from './components/todoList/TodoList.vue';
+import TodoList from './components/TodoList/TodoList.vue';
 
 export default {
   components: {
