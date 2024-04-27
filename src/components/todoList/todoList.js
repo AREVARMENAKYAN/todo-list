@@ -15,9 +15,35 @@ export default {
             this.isTaskModalOpen = !this.isTaskModalOpen
         },
         onTaskSave(task) {
+            const url = 'http://localhost:3001/task'
+            const params = {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(task)
+            }
+            fetch(url, params).then(async (res) => {
+                if (res.status >= 500) {
+                    throw new Error('Error, please, try again!');
+                }
 
-            this.tasks.push(task)
-            this.toggleTaskModal();
+                const result = await res.json()
+                if (res.status >= 300 && result.error) {
+                    throw new Error(result.error.message)
+                }
+                return result;
+            })
+                .then((newTask) => {
+                    this.tasks.push(newTask)
+                    this.toggleTaskModal();
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+
+
+
         }
     },
 }
