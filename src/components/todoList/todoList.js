@@ -41,7 +41,7 @@ export default {
                     this.toggleTaskModal();
                 })
                 .catch((err) => {
-                    console.log(err)
+                 
                 })
 
         }
