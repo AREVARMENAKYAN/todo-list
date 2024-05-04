@@ -1,8 +1,8 @@
-class TaskApi{
-    apiHost='http://localhost:3001'
+class TaskApi {
+    apiHost = 'http://localhost:3001'
 
-    request(url,params){
-       return fetch(url, params).then(async (res) => {
+    request(url, params) {
+        return fetch(url, params).then(async (res) => {
             if (res.status >= 500) {
                 throw new Error('Error, please, try again!');
             }
@@ -14,30 +14,41 @@ class TaskApi{
             return result;
         })
     }
-addNewTask(task){
-    const url = `${this.apiHost}/task`
-            const params = {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(task)
-            }
-       return this.request(url,params)
-                
-}
-getTasks(){
-    const url = `${this.apiHost}/task`
-            const params = {
-                method: 'GET',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            }
-           return this.request(url,params)         
-}
-getSingleTask(){}
-deleteTask(){}
+    addNewTask(task) {
+        const url = `${this.apiHost}/task`
+        const params = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(task)
+        }
+        return this.request(url, params)
+
+    }
+    getTasks() {
+        const url = `${this.apiHost}/task`
+        const params = {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }
+        return this.request(url, params)
+    }
+    getSingleTask() { }
+    deleteTask() { }
+    updateTask(task) {
+        const url = `${this.apiHost}/task/${task._id}`
+        const params = {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(task)
+        }
+        return this.request(url, params)
+    }
 
 }
 

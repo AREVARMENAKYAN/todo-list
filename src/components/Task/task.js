@@ -14,5 +14,10 @@ export default {
         date() {
             return this.data.date ? this.data.date.slice(0, 10) : ''
         }
+    },
+    methods: {
+        onEdit() {
+            this.$emit('taskEdit')
+        }
     }
 }

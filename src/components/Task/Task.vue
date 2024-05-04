@@ -1,5 +1,5 @@
 <template>
-        <v-card class="mx-auto my-8" elevation="16" width="auto">
+    <v-card class="mx-auto my-8" elevation="16" width="auto">
         <v-card-item>
             <input type="checkbox" />
             <v-card-title>
@@ -27,7 +27,7 @@
             <v-btn color="success" variant="elevated">
                 <v-icon icon="mdi-check-outline" />
             </v-btn>
-            <v-btn color="warning" variant="elevated">
+            <v-btn color="warning" variant="elevated" @click="onEdit">
                 <v-icon icon="mdi-archive-edit-outline" />
             </v-btn>
             <v-btn color="error" variant="elevated">
