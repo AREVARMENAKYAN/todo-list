@@ -27,7 +27,7 @@
             <v-btn color="success" variant="elevated">
                 <v-icon icon="mdi-check-outline" />
             </v-btn>
-            <v-btn color="warning" variant="elevated">
+            <v-btn color="warning" variant="elevated" @click="onEdit">
                 <v-icon icon="mdi-archive-edit-outline" />
             </v-btn>
             <v-btn color="error" variant="elevated">
