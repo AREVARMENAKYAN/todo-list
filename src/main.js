@@ -23,10 +23,10 @@ const vuetify = createVuetify({
 })
 
 createApp(App)
-.use(vuetify)
-.use(ToastPlugin,{
-    duration: 5000,
-    position: 'bottom-left',
-    dismissible: true,
-})
-.mount('#app')
+    .use(vuetify)
+    .use(ToastPlugin, {
+        duration: 5000,
+        position: 'bottom-left',
+        dismissible: true,
+    })
+    .mount('#app')

@@ -1,5 +1,5 @@
 <template>
-        <v-card class="mx-auto my-8" elevation="16" width="auto">
+    <v-card class="mx-auto my-8" elevation="16" width="auto">
         <v-card-item>
             <input type="checkbox" />
             <v-card-title>

@@ -55,9 +55,9 @@ export default {
         onTaskSave(editedTask) {
             taskApi.updateTask(editedTask)
                 .then((updatedTask) => {
-                   const index= this.tasks.findIndex((t)=>t._id===updatedTask._id)
-                   this.tasks[index]=updatedTask
-                    this.isTaskModalOpen=false
+                    const index = this.tasks.findIndex((t) => t._id === updatedTask._id)
+                    this.tasks[index] = updatedTask
+                    this.isTaskModalOpen = false
                     this.$toast.success('The task has been updated successfully!')
                 })
                 .catch(this.handleError)
