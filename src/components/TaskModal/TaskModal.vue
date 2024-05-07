@@ -6,7 +6,7 @@
                 <v-card-text>
                     <v-row dense>
                         <v-col cols="12" sm="12">
-                            <v-text-field :class="{ 'invalid': !isTitleValid }" label="Title*" required
+                            <v-text-field ref="title" :class="{ 'invalid': !isTitleValid }" label="Title*" required
                                 v-model="title"></v-text-field>
                         </v-col>
 
