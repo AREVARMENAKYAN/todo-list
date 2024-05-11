@@ -1,6 +1,6 @@
-import TaskModal from '../TaskModal/TaskModal.vue'
-import Task from '../Task/Task.vue'
-import TaskApi from '../../utils/taskAPI.js'
+import TaskModal from '../../TaskModal/TaskModal.vue'
+import Task from '../../Task/Task.vue'
+import TaskApi from '../../../utils/taskAPI.js'
 
 const taskApi = new TaskApi()
 

@@ -31,7 +31,9 @@ if(body){
     getTasks() {
         return this.request('GET')
     }
-    getSingleTask() { }
+    getSingleTask(taskId) { 
+        return this.request('GET',taskId)
+    }
     deleteTask(taskId) {
         return this.request('DELETE', taskId)
      }

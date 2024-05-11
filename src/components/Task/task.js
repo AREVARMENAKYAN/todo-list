@@ -15,7 +15,7 @@ export default {
             return this.data.date ? this.data.date.slice(0, 10) : ''
         },
         active() {
-            return this.data.status === 'active';
+            return this.data.status === 'active'
         }
     },
     methods: {
