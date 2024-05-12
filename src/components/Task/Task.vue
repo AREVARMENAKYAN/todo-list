@@ -1,7 +1,7 @@
 <template>
     <v-card class="mx-auto my-8" elevation="16" width="auto">
         <v-card-item>
-            <input type="checkbox" />
+            <v-checkbox @update:modelValue="onSelect" :modelValue="isSelected"></v-checkbox>
             <v-card-title>
                 {{ data.title }}
             </v-card-title>
