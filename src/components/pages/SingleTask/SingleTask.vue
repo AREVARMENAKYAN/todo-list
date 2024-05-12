@@ -1,18 +1,25 @@
 <template>
-    <v-card class="mx-auto my-8" elevation="16" width="auto">
+    <v-card v-if="task" class="mx-auto my-8" elevation="16" width="auto">
+        <TaskModal 
+        v-if="isEditModalOpen" 
+        :isOpen="isEditModalOpen" 
+        :editingTask="task" 
+        @close="toggleTaskModal"
+        @taskSave="onSave" 
+         />
+       
         <v-card-item>
-            <input type="checkbox" />
-            <v-card-title>
-                {{ data.title }}
+            <v-card-title class="text-wrap">
+                {{ task.title }}
             </v-card-title>
         </v-card-item>
 
-        <v-card-text class="description">
-            {{ data.description }}
+        <v-card-text>
+            {{ task.description }}
         </v-card-text>
 
         <v-card-text>
-            Status: {{ data.status }}
+            Status: {{ task.status }}
         </v-card-text>
 
         <v-card-text>
@@ -23,16 +30,12 @@
             Due date: {{ dueDate }}
         </v-card-text>
 
-        <v-card-text>
-            <RouterLink :to="`/task/${data._id}`">Show more...</RouterLink>
-        </v-card-text>
-
         <v-card-actions>
             <v-btn color="success" variant="elevated" @click="onChangeStatus">
                 <v-icon v-if="active" icon="mdi-check-outline" />
                 <v-icon v-else icon="mdi mdi-restore" />
             </v-btn>
-            <v-btn color="warning" variant="elevated" @click="onEdit">
+            <v-btn color="warning" variant="elevated" @click="toggleTaskModal">
                 <v-icon icon="mdi-archive-edit-outline" />
             </v-btn>
             <v-btn color="error" variant="elevated" @click="onDelete">
@@ -40,15 +43,7 @@
             </v-btn>
         </v-card-actions>
     </v-card>
-
+<h4 v-else>Task not found!</h4>
 </template>
 
-<script src="./task.js"></script>
-<style scoped>
-.description{
-    text-overflow: ellipsis;
-    white-space:nowrap ;
-    overflow: hidden;
-}
-
-</style>
+<script src="./singleTask.js"></script>
