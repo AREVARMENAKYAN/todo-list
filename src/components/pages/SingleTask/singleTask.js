@@ -46,11 +46,21 @@ export default {
         },
         onChangeStatus() {
             this.toggleLoading()
-            this.task.status === 'active' ? this.task.status = 'done' : this.task.status = 'active';
+            const updatedTask={
+                ...this.task,
+                status: this.task.status==='active'? 'done':'active'
+            }
             taskApi
-                .updateTask(this.task)
+                .updateTask(updatedTask)
                 .then(() => {
-                    let message = this.task.status === 'done' ? 'Done!' : 'The task has been restored!'
+                    this.task=updatedTask
+                    let message
+                    if(this.task.status==='done'){
+                        message='Done!'
+                    }
+                    else{
+                        message='Restored!'
+                    }
                     this.$toast.success(message)
                 })
                 .catch(this.handleError)
