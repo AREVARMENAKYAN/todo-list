@@ -1,3 +1,4 @@
+import { mapMutations } from 'vuex'
 import task from '@/components/Task/task.js'
 import TaskApi from '../../../utils/taskAPI.js'
 import TaskModal from '../../TaskModal/TaskModal.vue'
@@ -29,6 +30,7 @@ export default {
         },
     },
     methods: {
+        ...mapMutations(['toggleLoading']),
         toggleTaskModal() {
             this.isEditModalOpen = !this.isEditModalOpen
 
@@ -43,16 +45,31 @@ export default {
                 .catch(this.handleError)
         },
         onChangeStatus() {
-            this.task.status === 'active' ? this.task.status = 'done' : this.task.status = 'active';
+            this.toggleLoading()
+            const updatedTask={
+                ...this.task,
+                status: this.task.status==='active'? 'done':'active'
+            }
             taskApi
-                .updateTask(this.task)
+                .updateTask(updatedTask)
                 .then(() => {
-                    let message = this.task.status === 'done' ? 'Done!' : 'The task has been restored!'
+                    this.task=updatedTask
+                    let message
+                    if(this.task.status==='done'){
+                        message='Done!'
+                    }
+                    else{
+                        message='Restored!'
+                    }
                     this.$toast.success(message)
                 })
                 .catch(this.handleError)
+                .finally(()=>{
+                    this.toggleLoading()
+                })
         },
         onSave(editedTask) {
+            this.toggleLoading()
             taskApi
                 .updateTask(editedTask)
                 .then(() => {
@@ -61,9 +78,13 @@ export default {
                     this.$toast.success('The task has been updated successfully')
                 })
                 .catch(this.handleError)
+                .finally(()=>{
+                    this.toggleLoading()
+                })
 
         },
         onDelete() {
+            this.toggleLoading()
             const taskId = this.task._id
             taskApi
                 .deleteTask(taskId)
@@ -72,6 +93,10 @@ export default {
                     this.$toast.success('The task has been deleted successfully')
                 })
                 .catch(this.handleError)
+                .finally(()=>{
+                    this.toggleLoading()
+                })
+
         },
         handleError(error) {
             this.$toast.error(error.message)
