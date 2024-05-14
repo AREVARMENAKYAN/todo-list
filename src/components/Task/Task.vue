@@ -45,10 +45,9 @@
 
 <script src="./task.js"></script>
 <style scoped>
-.description{
+.description {
     text-overflow: ellipsis;
-    white-space:nowrap ;
+    white-space: nowrap;
     overflow: hidden;
 }
-
 </style>

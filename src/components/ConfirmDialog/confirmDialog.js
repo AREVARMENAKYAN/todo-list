@@ -9,11 +9,11 @@ export default {
             type: String,
             default: 'Do you want to delete selected tasks?'
         },
-        text:{
-            type:String
+        text: {
+            type: String
         },
     },
-    
+
     methods: {
         onClose() {
             this.$emit('close')

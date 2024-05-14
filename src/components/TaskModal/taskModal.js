@@ -53,7 +53,6 @@ export default {
                 return
             }
             this.$emit('taskAdd', task)
-
         },
         onTitleInput(event) {
             this.title = event.target.value
@@ -69,8 +68,5 @@ export default {
             }
             return 'Add new task'
         }
-
     }
-
-
 }
