@@ -9,7 +9,7 @@
                         </router-link>
                     </li>
                     <li>
-                        <a href="https://www.facebook.com/" target="_blank">
+                        <a class="icons" href="https://www.facebook.com/" target="_blank">
                             <img class="todo-imgs" src="../../assets/images/fb-logo.png">
                         </a>
                     </li>
@@ -42,19 +42,13 @@
 .todo-imgs {
     width: 30px;
     height: 30px;
+    display: flex;
 }
 
 .footer {
-    width: 100%;
     background-color: #333;
     color: #fff;
     text-align: center;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .footer-content p {
@@ -65,6 +59,12 @@ ul {
     list-style-type: none;
     color: white;
     margin-right: 250px;
-    display: inline-block
+    display: flex;
+    padding: 0;
+}
+
+ul li {
+    display: flex;
+    margin-right: 20px;
 }
 </style>

@@ -50,8 +50,9 @@
 .fixed-nav a:hover {
   background-color: #555;
 }
-.todo-logo{
-  width:50px ;
-  height:50px ;
+
+.todo-logo {
+  width: 50px;
+  height: 50px;
 }
 </style>

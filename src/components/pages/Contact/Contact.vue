@@ -13,8 +13,8 @@
                         <v-card-title>Sent!</v-card-title>
                     </v-card-item>
                     <RouterLink to="/">
-                        <v-btn color="success" @click="toggleMessage">
-                            Back to home page
+                        <v-btn class="btn" color="success" @click="toggleMessage">
+                     Go Home page
                         </v-btn>
                     </RouterLink>
                 </v-card>
@@ -51,4 +51,8 @@
     font-style: italic;
     text-align: center;
 }
+.btn{
+    width: 120px;
+}
+
 </style>

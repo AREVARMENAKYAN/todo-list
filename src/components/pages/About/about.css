@@ -1,0 +1,26 @@
+
+.logoImg {
+    width: 100px;
+    height: 100px;
+    margin-top: 70px;
+}
+
+.v-card-title {
+    font-style: italic;
+    color: #11633c;
+}
+
+span {
+    color: #841313;
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap
+}
+
+img {
+    padding: 20px;
+    width: 500px;
+    height: 400px;
+}

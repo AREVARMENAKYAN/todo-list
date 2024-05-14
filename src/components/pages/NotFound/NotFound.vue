@@ -8,37 +8,5 @@
 </template>
 
 <style scoped>
-h1 {
-    margin-top: 100px;
-}
-
-div {
-    display: flex;
-    justify-content: center
-}
-
-img {
-    width: 500px;
-    height: 500px;
-}
-
-p {
-    font-size: 30px;
-    font-style: oblique;
-    display: flex;
-    justify-content: center
-}
-
-h1 {
-    font-size: 80px;
-    display: flex;
-    justify-content: center
-}
-
-span {
-    font-size: 30px;
-    color: red;
-    display: flex;
-    justify-content: center
-}
+@import './notFound.css';
 </style>
