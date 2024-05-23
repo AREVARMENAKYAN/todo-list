@@ -10,7 +10,7 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import ToastPlugin from 'vue-toast-notification'
 import App from './App.vue'
 import { router } from './router.js'
-import {store} from './store.js'
+import { store } from './store.js'
 
 
 

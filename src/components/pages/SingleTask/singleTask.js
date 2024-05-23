@@ -46,25 +46,25 @@ export default {
         },
         onChangeStatus() {
             this.toggleLoading()
-            const updatedTask={
+            const updatedTask = {
                 ...this.task,
-                status: this.task.status==='active'? 'done':'active'
+                status: this.task.status === 'active' ? 'done' : 'active'
             }
             taskApi
                 .updateTask(updatedTask)
                 .then(() => {
-                    this.task=updatedTask
+                    this.task = updatedTask
                     let message
-                    if(this.task.status==='done'){
-                        message='Done!'
+                    if (this.task.status === 'done') {
+                        message = 'Done!'
                     }
-                    else{
-                        message='Restored!'
+                    else {
+                        message = 'Restored!'
                     }
                     this.$toast.success(message)
                 })
                 .catch(this.handleError)
-                .finally(()=>{
+                .finally(() => {
                     this.toggleLoading()
                 })
         },
@@ -78,10 +78,9 @@ export default {
                     this.$toast.success('The task has been updated successfully')
                 })
                 .catch(this.handleError)
-                .finally(()=>{
+                .finally(() => {
                     this.toggleLoading()
                 })
-
         },
         onDelete() {
             this.toggleLoading()
@@ -93,14 +92,12 @@ export default {
                     this.$toast.success('The task has been deleted successfully')
                 })
                 .catch(this.handleError)
-                .finally(()=>{
+                .finally(() => {
                     this.toggleLoading()
                 })
-
         },
         handleError(error) {
             this.$toast.error(error.message)
         },
-
     }
 }

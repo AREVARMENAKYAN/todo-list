@@ -11,11 +11,7 @@
 
                     <v-btn color="warning" text="Close" variant="plain" @click="onClose"></v-btn>
 
-                    <v-btn 
-                    color="success" 
-                    text="Confirm" 
-                    variant="tonal"
-                    @click="onConfirm"></v-btn>
+                    <v-btn color="success" text="Confirm" variant="tonal" @click="onConfirm"></v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
@@ -23,4 +19,3 @@
 </template>
 
 <script src="./confirmDialog.js"></script>
-

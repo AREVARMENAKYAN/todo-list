@@ -40,7 +40,6 @@ export default {
         isDeleteSelectedBtnDisabled() {
             return !this.selectedTasks.size
         },
-
         confirmDialogText() {
             return `You are going to delete ${this.selectedTasks.size} task(s), are you sure?`
         },
@@ -120,7 +119,6 @@ export default {
                     this.toggleLoading()
                 })
         },
-
         findAndReplaceTask(updatedTask) {
             const index = this.tasks.findIndex((t) => t._id === updatedTask._id)
             this.tasks[index] = updatedTask
@@ -154,11 +152,9 @@ export default {
             taskApi
                 .deleteTasks([...this.selectedTasks])
                 .then(() => {
-
                     this.tasks = this.tasks.filter((t) => !this.selectedTasks.has(t._id))
                     this.selectedTasks.clear()
                     this.$toast.success('Your selected tasks have been deleted successfully!')
-
                 })
                 .catch(this.handleError)
                 .finally(() => {

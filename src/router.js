@@ -11,7 +11,7 @@ const routes = [
     { path: '/', component: TodoList },
     { path: '/about', component: About },
     { path: '/task/:taskId', component: SingleTask },
-    { path: '/contact-us', component: Contact },
+    { path: '/contact', component: Contact },
     { path: '/:pathMatch(.*)*', component: NotFound },
 ]
 

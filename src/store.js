@@ -7,13 +7,13 @@ const store = createStore({
         }
     },
     mutations: {
-        toggleLoading(state){
-            state.isLoading=!state.isLoading
+        toggleLoading(state) {
+            state.isLoading = !state.isLoading
         }
     },
     getters: {
-        isLoading: (state)=>state.isLoading
+        isLoading: (state) => state.isLoading
     }
 })
 
-export {store}
+export { store }

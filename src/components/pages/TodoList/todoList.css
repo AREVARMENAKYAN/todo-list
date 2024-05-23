@@ -1,0 +1,26 @@
+.addNewTask {
+    margin-top: 20px;
+}
+
+.delete-seleced-btn {
+    position: fixed;
+    right: -145px;
+    bottom: 40px;
+
+}
+
+.delete-seleced-btn:hover {
+    animation-name: btn-animation;
+    animation-duration: 1s;
+    right: 20px;
+}
+
+@keyframes btn-animation {
+    from {
+        right: -145px;
+    }
+
+    to {
+        right: 20px;
+    }
+}

@@ -1,5 +1,8 @@
-const emailRegex =
-    /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
+import FormApi from '../../../utils/formAPI.js'
+import { mapMutations } from 'vuex'
+
+const formApi = new FormApi()
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export default {
     data: () => ({
@@ -7,35 +10,49 @@ export default {
         email: '',
         message: '',
         nameRules: [(v) => !!v || 'Name is required'],
-        emailRules: [(v) => !!v || 'Email is required', (v) => emailRegex.test(v) || 'Invalid email']
+        emailRules: [(v) => !!v || 'Email is required', (v) => emailRegex.test(v) || 'Invalid email'],
+        isFormSent: false,
+        messageSent: {}
     }),
 
     methods: {
+        ...mapMutations(['toggleLoading']),
         async sendForm() {
             const isValid = await this.validate()
             if (!isValid) {
-              return
+                return
             }
             const form = {
-              name: this.name,
-              emeil: this.email,
-              message: this.message
+                name: this.name,
+                email: this.email,
+                message: this.message
             }
+            this.toggleLoading()
+            formApi.sendForm(form)
+                .then(() => {
+                    this.messageSent = { ...form }
+                    this.isFormSent = true
+                    this.reset()
+                    this.$toast.success('Sent!')
+                })
+                .catch(this.handleError)
+                .finally(() => {
+                    this.toggleLoading()
+                })
 
-
-
-
-
-
-
-            
         },
         async validate() {
             const { valid } = await this.$refs.form.validate()
             return valid
-          },
-          reset() {
+        },
+        reset() {
             this.$refs.form.reset()
-          }
+        },
+        handleError(err) {
+            this.$toast.error(err.message)
+        },
+        toggleMessage() {
+            this.isFormSent = !this.isFormSent
+        }
     }
 }

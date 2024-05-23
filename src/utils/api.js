@@ -1,16 +1,16 @@
 class Api {
     apiHost = import.meta.env.VITE_API_HOST
 
-    request(method, url='', body) {
+    request(method, url = '', body) {
         const params = {
             method,
             headers: {
                 "Content-Type": "application/json",
             },
         }
-if(body){
-    params.body=JSON.stringify(body)
-}
+        if (body) {
+            params.body = JSON.stringify(body)
+        }
 
         const host = `${this.apiHost}/${this.entityName}/${url}`
         return fetch(host, params).then(async (res) => {
