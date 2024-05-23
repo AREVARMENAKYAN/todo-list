@@ -7,6 +7,4 @@
     </div>
 </template>
 
-<style scoped>
-@import './notFound.css';
-</style>
+<style scoped src="./notFound.css"></style>

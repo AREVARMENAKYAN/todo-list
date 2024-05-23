@@ -32,6 +32,4 @@
 
 <script src="./todoList.js"></script>
 
-<style scoped>
-@import './todoList.css';
-</style>
+<style scoped src="./todoList.css"></style>

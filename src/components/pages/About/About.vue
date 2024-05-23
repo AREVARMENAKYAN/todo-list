@@ -38,6 +38,4 @@
     </main>
 </template>
 
-<style scoped>
-@import './about.css';
-</style>
+<style scoped src="./about.css"></style>
